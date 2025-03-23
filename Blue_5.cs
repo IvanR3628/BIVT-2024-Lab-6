@@ -78,7 +78,7 @@ namespace Lab_6
                 {
                     if (_sportsmen == null) return 0;
                     int mn = 18;
-                    for (int i = 0; i < _sportsmen.Length; i++) if (_sportsmen[i].Place < mn) mn = _sportsmen[i].Place;
+                    for (int i = 0; i < _sportsmenID; i++) if (_sportsmen[i].Place < mn) mn = _sportsmen[i].Place;
                     return mn;
                 }
             }

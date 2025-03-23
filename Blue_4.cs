@@ -118,12 +118,19 @@ namespace Lab_6
                 Team[] team2 = group2.Teams;
                 Group finalists = new Group("Финалисты");
                 if ((team1 == null) || (team2 == null)) return finalists;
-                for (int i = 0; i < size; i++)
+                for (int i = 0, j = 0; i + j < size * 2;)
                 {
-                    if (i < team1.Length) finalists.Add(team1[i]);
-                    if (i < team2.Length) finalists.Add(team2[i]);
+                    if (((team1[i].TotalScore >= team2[j].TotalScore) || (j >= size)) && (i < size))
+                    {
+                        if (i < team1.Length) finalists.Add(team1[i]);
+                        i++;
+                    }
+                    else
+                    {
+                        if (j < team2.Length) finalists.Add(team2[j]);
+                        j++;
+                    }
                 }
-                finalists.Sort();
                 return finalists;
             }
 
